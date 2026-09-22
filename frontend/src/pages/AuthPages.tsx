@@ -40,7 +40,7 @@ export function RegisterPage() {
     try { await auth.register({ [mode]: values.account, displayName: values.displayName, password: values.password }); navigate('/products'); }
     catch (e) { setError(getErrorMessage(e)); } finally { setLoading(false); }
   };
-  return <AuthFrame title="加入栖物" subtitle="从今天开始，收藏值得的日常">
+  return <AuthFrame title="加入好物 Mall" subtitle="从今天开始，发现值得的日常">
     <Segmented block value={mode} onChange={setMode} options={[{ label: '邮箱注册', value: 'email' }, { label: '手机号注册', value: 'phone' }]} />
     {error && <Alert type="error" showIcon message={error} />}
     <Form layout="vertical" size="large" onFinish={submit} requiredMark={false}>
@@ -54,5 +54,5 @@ export function RegisterPage() {
 }
 
 function AuthFrame({ title, subtitle, children }: { title: string; subtitle: string; children: React.ReactNode }) {
-  return <main className="auth-page"><section className="auth-story"><Link to="/products"><ArrowLeftOutlined /> 返回商店</Link><div><span className="eyebrow">QI WU ATELIER</span><Typography.Title>让每一次选择，<br />都更接近理想生活。</Typography.Title><Typography.Paragraph>克制的设计、温暖的材质，和经得起时间的日常器物。</Typography.Paragraph></div></section><Card className="auth-card"><div className="brand auth-brand">栖物<small>ATELIER</small></div><Typography.Title level={2}>{title}</Typography.Title><Typography.Paragraph type="secondary">{subtitle}</Typography.Paragraph>{children}</Card></main>;
+  return <main className="auth-page"><section className="auth-story"><Link to="/products"><ArrowLeftOutlined /> 返回商店</Link><div><span className="eyebrow">GOOD THINGS · BETTER LIFE</span><Typography.Title>认真挑选好物，<br />让生活多一点从容。</Typography.Title><Typography.Paragraph>可靠品质、清晰价格和贴心服务，把每一次购物变成愉快的选择。</Typography.Paragraph></div></section><Card className="auth-card"><Link className="brand auth-brand" to="/products"><span className="brand-mark">好</span><span>好物<strong>Mall</strong><small>GOOD THINGS, BETTER LIFE</small></span></Link><Typography.Title level={2}>{title}</Typography.Title><Typography.Paragraph type="secondary">{subtitle}</Typography.Paragraph>{children}</Card></main>;
 }

@@ -45,6 +45,14 @@ const mapUser = (user: RawUser): User => {
   const phone = email ? undefined : user.account;
   return { id: asId(user.id), displayName: user.account.split('@')[0], email, phone, role: user.role };
 };
+const productImageById: Record<string, string> = {
+  '1': '/product-images/aurora-headphones.jpg',
+  '2': '/product-images/flow-keyboard.jpg',
+  '3': '/product-images/pocket-charger.jpg',
+  '4': '/product-images/cloud-mug.jpg',
+  '5': '/product-images/luna-humidifier.jpg',
+  '6': '/product-images/trail-backpack.jpg',
+};
 const mapSku = (sku: RawSku): Sku => ({ id: asId(sku.id), name: sku.name, price: Number(sku.price), stock: sku.stock });
 const mapProduct = (product: RawProduct): Product => {
   const skus = (product.skus ?? []).filter((sku) => sku.status === 'ACTIVE').map(mapSku);
@@ -55,6 +63,7 @@ const mapProduct = (product: RawProduct): Product => {
     description: product.description,
     categoryId: asId(product.categoryId),
     categoryName: product.categoryName,
+    coverUrl: productImageById[asId(product.id)] ?? product.coverUrl,
     price: Number(product.minPrice),
     stock: skus.reduce((total, sku) => total + sku.stock, 0),
     badge: '本季精选',
@@ -65,6 +74,7 @@ const mapCartItem = (item: RawCartItem): CartItem => {
   const sku: Sku = { id: asId(item.skuId), name: item.skuName, price: Number(item.unitPrice), stock: item.stock };
   const product: Product = {
     id: asId(item.productId), name: item.productName, description: '', categoryId: '',
+    coverUrl: productImageById[asId(item.productId)] ?? item.coverUrl,
     price: Number(item.unitPrice), stock: item.stock, skus: [sku],
   };
   return { id: asId(item.id), product, sku, quantity: item.quantity };

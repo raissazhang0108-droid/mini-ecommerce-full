@@ -1,5 +1,7 @@
 # mini-ecommerce
 
+[简体中文](README.md) | [English](README_EN.md)
+
 一个独立、精简但具备真实购物闭环的全栈电商项目。CRMEB Java 仅作为业务概念参考，项目不依赖也未复制 CRMEB 源码。
 
 ## 已实现的购物流程

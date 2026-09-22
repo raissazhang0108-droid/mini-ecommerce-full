@@ -16,7 +16,7 @@ import { ProductsPage } from './pages/ProductsPage';
 import { TrackingPage } from './pages/TrackingPage';
 
 export const queryClient = new QueryClient({ defaultOptions: { queries: { retry: 1, refetchOnWindowFocus: false, staleTime: 30_000 } } });
-const theme = { token: { colorPrimary: '#c7663d', colorInfo: '#315e4d', colorSuccess: '#315e4d', colorText: '#28342f', colorBgLayout: '#f7f3eb', borderRadius: 14, fontFamily: '"DM Sans", "Noto Sans SC", sans-serif' }, components: { Button: { controlHeightLG: 48, fontWeight: 600 }, Card: { borderRadiusLG: 20 } } };
+const theme = { token: { colorPrimary: '#e0332b', colorInfo: '#e0332b', colorSuccess: '#2e7d4f', colorText: '#22221f', colorBgLayout: '#fafaf8', borderRadius: 6, fontFamily: '"PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif' }, components: { Button: { controlHeightLG: 46, fontWeight: 600 }, Card: { borderRadiusLG: 8 }, Input: { activeBorderColor: '#e0332b', hoverBorderColor: '#e0332b' } } };
 
 export function App() {
   return <ConfigProvider locale={zhCN} theme={theme}><AntApp><QueryClientProvider client={queryClient}><BrowserRouter><AuthProvider><Routes>

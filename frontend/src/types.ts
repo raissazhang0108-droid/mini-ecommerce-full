@@ -17,6 +17,7 @@ export interface Product {
   description: string;
   categoryId: string;
   categoryName?: string;
+  coverUrl?: string;
   price: number;
   originalPrice?: number;
   stock: number;
