@@ -107,4 +107,5 @@ mini-ecommerce/
 
 - [API 文档](docs/api.md)
 - [架构说明](docs/architecture.md)
+- [部署指南与故障排查](docs/deployment-troubleshooting.md)
 - [CRMEB Java 概念参考](docs/crmeb-reference.md)
